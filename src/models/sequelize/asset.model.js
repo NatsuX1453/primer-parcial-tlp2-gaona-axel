@@ -26,6 +26,10 @@ export const AssetModel = sequelize.define('Asset', {
 		},
 	},
 });
+// TODO: Relación muchos a uno con User (muchos Assets pueden tener un mismo responsable)
+// * 1:N User → Asset (responsible)
+// * 'assets' (User) y 'responsible' (Asset)
+// ! FALTA COMPLETAR ACA(abajo esta mi desarrollo)
 UserModel.hasMany(AssetModel, {
 	foreignKey: 'responsible_id',
 	as: 'assets',
@@ -34,8 +38,3 @@ AssetModel.belongsTo(UserModel, {
 	foreignKey: 'responsible_id',
 	as: 'responsible',
 });
-// TODO: Relación muchos a uno con User (muchos Assets pueden tener un mismo responsable)
-// * 1:N User → Asset (responsible)
-// * 'assets' (User) y 'responsible' (Asset)
-// ! FALTA COMPLETAR ACA
-// Relación 1:N User → Asset (responsible)

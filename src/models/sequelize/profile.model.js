@@ -11,6 +11,11 @@ export const ProfileModel = sequelize.define('Profile', {
 	last_name: { type: DataTypes.STRING(50), allowNull: false },
 	phone: { type: DataTypes.STRING(20), allowNull: true },
 });
+
+// TODO: Relación uno a uno con User (1 User tiene 1 Profile)
+// * 1:1 Profile ↔ User
+// * 'profile' (User) y 'user' (Profile)
+// ! FALTA COMPLETAR ACA(abajo esta mi desarrollo)
 UserModel.hasOne(ProfileModel, {
 	foreignKey: 'user_id',
 	as: 'profile',
@@ -19,8 +24,3 @@ ProfileModel.belongsTo(UserModel, {
 	foreignKey: 'user_id',
 	as: 'user',
 });
-
-// TODO: Relación uno a uno con User (1 User tiene 1 Profile)
-// * 1:1 Profile ↔ User
-// * 'profile' (User) y 'user' (Profile)
-// ! FALTA COMPLETAR ACA

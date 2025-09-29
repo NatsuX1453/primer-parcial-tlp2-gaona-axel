@@ -6,6 +6,10 @@ export const AssetCategoryModel = sequelize.define('AssetCategory', {
 	id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
 });
 
+// TODO: completar relaciones muchos a muchos entre Asset y Category mediante AssetCategory.
+// * N:M Asset ↔ Category through AssetCategory
+// * 'categories' (Asset) y 'assets' (Category)
+// ! FALTA COMPLETAR ACA (abajo esta mi desarrollo)
 AssetModel.belongsToMany(CategoryModel, {
 	through: AssetCategoryModel,
 	as: 'categories',
@@ -18,7 +22,3 @@ CategoryModel.belongsToMany(AssetModel, {
 	foreignKey: 'category_id',
 	otherKey: 'asset_id',
 });
-// TODO: completar relaciones muchos a muchos entre Asset y Category mediante AssetCategory.
-// * N:M Asset ↔ Category through AssetCategory
-// * 'categories' (Asset) y 'assets' (Category)
-// ! FALTA COMPLETAR ACA
