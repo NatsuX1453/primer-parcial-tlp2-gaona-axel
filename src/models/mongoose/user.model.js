@@ -1,6 +1,4 @@
 import { model, Schema } from 'mongoose';
-import { ProfileModel } from '../sequelize/profile.model';
-import { userRoutes } from '../../routes/users.routes';
 
 // TODO: completar relacion embebida y configurar el virtuals para el populate inverso con assets
 const UserSchema = new Schema(

@@ -1,7 +1,3 @@
-import { UserModel } from '../models/mongoose/user.model.js';
-import bcrypt from '../helpers/bcrypt.helper.js';
-import jwt from '../helpers/jwt.helper.js';
-
 export const register = async (req, res) => {
 	//TODO:  crear usuario con password hasheada y profile embebido
 	try {
@@ -15,7 +11,7 @@ export const register = async (req, res) => {
 			lastName,
 			phone,
 		} = req.body;
-		const hashedPassword = await bcrypt.hash(password, 10);
+		const hashedPassword = await hashPassword(password);
 		const user = await UserModel.create({
 			username,
 			email,
@@ -47,7 +43,7 @@ export const login = async (req, res) => {
 		if (!user) {
 			return res.status(401).json({ msg: 'Usuario o contraseña incorrectos' });
 		}
-		const isValid = await bcrypt.compare(password, user.password);
+		const isValid = await comparePassword(password, user.password);
 		if (!isValid) {
 			return res.status(401).json({ msg: 'Usuario o contraseña incorrectos' });
 		}

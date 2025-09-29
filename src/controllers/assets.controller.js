@@ -12,8 +12,8 @@ const assetData = {
 	...req.body,
 	responsible: userId,
 };
-const asset = await AssetModel.create(assetData);
-return res.status(201).json({ msg: 'Asset creado correctamente', data: asset });
+// const asset = await AssetModel.create(assetData);
+// return res.status(201).json({ msg: 'Asset creado correctamente', data: asset });
 
 export const getAllAssets = async (_req, res) => {
 	//TODO: listar assets con el responsible y sus categories (populate) (solo admin)
