@@ -1,3 +1,3 @@
-export const createUserValidation = [
-  // TODO: completar las validaciones para crear un usuario
-];
+import { body } from 'express-validator';
+
+export const createUserValidation = [];

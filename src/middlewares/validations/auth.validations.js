@@ -1,7 +1,7 @@
-export const registerValidation = [
-  // TODO: completar las validaciones para el registro
-];
+import { body } from 'express-validator';
 
-export const loginValidation = [
-  // TODO: completar las validaciones para el login
-];
+//TODO: completar las validaciones para el registro
+export const registerValidation = [];
+
+//TODO:completar las validaciones para el login
+export const loginValidation = [];
